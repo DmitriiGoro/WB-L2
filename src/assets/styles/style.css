@@ -17,11 +17,12 @@ canvas {
   float: right;
 }
 h3 {
-  margin: 0;
-  display: inline;
+  margin: 0 0 10px 0;
 }
 .score {
+  font-size: 18px;
   font-family: monospace;
   color: white;
   /* padding-left: 20px; */
+  list-style: none;
 }

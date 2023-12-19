@@ -8,7 +8,9 @@
   <body>
     <!-- рисуем поле для игры -->
     <canvas width="320" height="640" id="game"></canvas>
-    <div class="score">Score: 0</div>
+    <ul class="score">
+      <li>Score: 0</li>
+    </ul>
     <script>
       // получаем контейнер для отображения текущего количество очков
       const scoreContainer = document.body.querySelector(".score");
@@ -204,7 +206,7 @@
                 playfield[r][c] = playfield[r - 1][c];
               }
             }
-            scoreContainer.innerHTML = `Score: ${score}`;
+            scoreContainer.innerHTML = `<li>Score: ${score}</li>`;
           } else {
             // переходим к следующему ряду
             row--;
@@ -233,7 +235,7 @@
         context.fillText("GAME OVER!", canvas.width / 2, canvas.height / 2);
         context.font = "26px monospace";
         context.fillText(
-          `Your score is ${score}`,
+          `You scored ${score}`,
           canvas.width / 2,
           canvas.height / 2 + 36
         );
@@ -246,12 +248,12 @@
 
           if (resultList.length > 5) {
             const minResult = Math.min(...resultList);
+            resultList.sort((a, b) => b - a);
 
             while (resultList.length > 5) {
               resultList.pop();
             }
           }
-          resultList.sort((a, b) => b - a);
         } else {
           resultList = [score];
         }
@@ -259,7 +261,7 @@
 
         scoreContainer.innerHTML = `<h3>Best results:</h3>
         ${resultList
-          .map((value, index) => `<div>${index + 1}: ${value}</div>`)
+          .map((value, index) => `<li>${index + 1}: ${value}</li>`)
           .join("")}`;
       }
 
