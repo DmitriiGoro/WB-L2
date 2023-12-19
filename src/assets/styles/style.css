@@ -19,7 +19,12 @@ canvas {
 h3 {
   margin: 0 0 10px 0;
 }
+ul {
+  padding: 0;
+}
 .score {
+  position: absolute;
+  left: 68%;
   font-size: 18px;
   font-family: monospace;
   color: white;
